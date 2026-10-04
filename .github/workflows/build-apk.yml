@@ -30,6 +30,11 @@ jobs:
           mkdir android-project
           unzip -o Catat_Pengeluaran_Android_APK_Ready.zip -d android-project
 
+      - name: Enable AndroidX
+        run: |
+          echo "android.useAndroidX=true" > android-project/gradle.properties
+          echo "android.enableJetifier=true" >> android-project/gradle.properties
+
       - name: Build APK
         run: |
           cd android-project
